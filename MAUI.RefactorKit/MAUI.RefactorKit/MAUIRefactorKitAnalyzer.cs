@@ -26,7 +26,7 @@ namespace MAUI.RefactorKit
                                                                                      DiagnosticSeverity.Error,
                                                                                      isEnabledByDefault: true,
                                                                                      description: Description,
-                                                                                     helpLinkUri: "https://www.google.com");
+                                                                                     helpLinkUri: "https://github.com/SkJonko/MAUI.RefactorKit/tree/master/MAUI.RefactorKit/MAUI.RefactorKit.Package");
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get { return ImmutableArray.Create(Rule); } }
 
