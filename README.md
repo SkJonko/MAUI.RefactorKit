@@ -36,6 +36,11 @@ The analyzer will:
 - Suggest fixes via lightbulb (Ctrl + .) or auto-fix.
 - Transform to the ObservableProperty attribute-based syntax.
 
+### Examples
+
+<details>
+    <summary>Properties</summary>
+
 ### Before:
 
 ```
@@ -57,6 +62,8 @@ public string Name
 [ObservableProperty]
 private string Name;
 ```
+
+---
 
 ### Before:
 
@@ -81,6 +88,8 @@ public string Test
 public partial string Test { get; set; }
 ```
 
+---
+
 ### Before:
 
 ```
@@ -103,6 +112,28 @@ public string Test1
 [NotifyPropertyChangedFor(nameof(CanExecuteCommand))]
 public partial string Test1 { get; set; }
 ```
+
+---
+
+### Before:
+
+```
+private bool _canExecuteCommand = false;
+public bool CanExecuteCommand
+{
+    get { return _canExecuteCommand; }
+    set { SetProperty(ref _canExecuteCommand, value); }
+}
+```
+
+### After:
+
+```
+ObservableProperty]
+public partial bool CanExecuteCommand { get; set; } = false;
+```
+
+</details>
 
 ## 📌 Requirements
 

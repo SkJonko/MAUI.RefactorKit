@@ -25,7 +25,6 @@ namespace MAUI.RefactorKit
         public sealed override FixAllProvider GetFixAllProvider()
             => WellKnownFixAllProviders.BatchFixer;
 
-
         public override async Task RegisterCodeFixesAsync(CodeFixContext context)
         {
             var root = await context.Document.GetSyntaxRootAsync(context.CancellationToken).ConfigureAwait(false);
@@ -149,11 +148,11 @@ namespace MAUI.RefactorKit
 
             // Build attribute lists
             var attributes = new List<AttributeListSyntax>
-                                {
-                                    SyntaxFactory.AttributeList(
-                                        SyntaxFactory.SingletonSeparatedList(
-                                            SyntaxFactory.Attribute(SyntaxFactory.IdentifierName("ObservableProperty"))))
-                                };
+                                    {
+                                        SyntaxFactory.AttributeList(
+                                            SyntaxFactory.SingletonSeparatedList(
+                                                SyntaxFactory.Attribute(SyntaxFactory.IdentifierName("ObservableProperty"))))
+                                    };
 
             foreach (var name in notifyForNames.Distinct())
             {
@@ -186,10 +185,10 @@ namespace MAUI.RefactorKit
                                 SyntaxFactory.AccessorList(
                                     SyntaxFactory.List(new[]
                                     {
-                                        SyntaxFactory.AccessorDeclaration(SyntaxKind.GetAccessorDeclaration)
-                                            .WithSemicolonToken(SyntaxFactory.Token(SyntaxKind.SemicolonToken)),
-                                        SyntaxFactory.AccessorDeclaration(SyntaxKind.SetAccessorDeclaration)
-                                            .WithSemicolonToken(SyntaxFactory.Token(SyntaxKind.SemicolonToken))
+                                            SyntaxFactory.AccessorDeclaration(SyntaxKind.GetAccessorDeclaration)
+                                                .WithSemicolonToken(SyntaxFactory.Token(SyntaxKind.SemicolonToken)),
+                                            SyntaxFactory.AccessorDeclaration(SyntaxKind.SetAccessorDeclaration)
+                                                .WithSemicolonToken(SyntaxFactory.Token(SyntaxKind.SemicolonToken))
                                     })
                                 )
                             );
@@ -242,23 +241,23 @@ namespace MAUI.RefactorKit
 
             var compilationUnit = root as CompilationUnitSyntax;
 
-            var test = SyntaxFactory.UsingDirective(
+            var importantUsing = SyntaxFactory.UsingDirective(
                     SyntaxFactory.ParseName("CommunityToolkit.Mvvm.ComponentModel"));
 
             if (!compilationUnit.Usings.Any(u => u.Name.ToString().Contains("CommunityToolkit.Mvvm.ComponentModel")))
             {
                 var ac = editor.OriginalRoot as CompilationUnitSyntax;
-                var newRoot = ac.AddUsings(test);
+                var newRoot = ac.AddUsings(importantUsing);
                 editor.ReplaceNode(root, newRoot);
             }
 
-            // Change the class to partial if it is not already
-            var classDecl1 = propDecl.Parent as ClassDeclarationSyntax;
-            if (classDecl1 != null && !classDecl1.Modifiers.Any(m => m.IsKind(SyntaxKind.PartialKeyword)))
-            {
-                var newClassDecl = classDecl1.AddModifiers(SyntaxFactory.Token(SyntaxKind.PartialKeyword));
-                editor.ReplaceNode(classDecl1, newClassDecl);
-            }
+            //// Change the class to partial if it is not already
+            //var classDecl1 = propDecl.Parent as ClassDeclarationSyntax;
+            //if (classDecl1 != null && !classDecl1.Modifiers.Any(m => m.IsKind(SyntaxKind.PartialKeyword)))
+            //{
+            //    var newClassDecl = classDecl1.AddModifiers(SyntaxFactory.Token(SyntaxKind.PartialKeyword));
+            //    editor.ReplaceNode(classDecl1, newClassDecl);
+            //}
 
             return editor.GetChangedDocument();
         }
