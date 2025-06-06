@@ -39,7 +39,7 @@
 	</Target>
 
 	<ItemGroup>
-		<None Include="Images\image.png" Pack="true" PackagePath=""/>
+		<None Include="images\image.png" Pack="true" PackagePath=""/>
 	</ItemGroup>
 
 </Project>
