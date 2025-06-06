@@ -8,6 +8,12 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
+		<IncludeSymbols>true</IncludeSymbols>
+		<IncludeSource>true</IncludeSource>
+		<DebugType>portable</DebugType>
+	</PropertyGroup>
+
+	<PropertyGroup>
 		<PackageId>MAUI.RefactorKit</PackageId>
 		<PackageVersion>1.0.0.0</PackageVersion>
 		<Authors>SKJonko X UnRatedDi</Authors>
@@ -16,6 +22,7 @@
 		<RepositoryUrl>https://github.com/SkJonko/MAUI.RefactorKit</RepositoryUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Description>A lightweight and extensible toolkit for refactoring and structuring .NET MAUI applications. MAUI.RefactorKit simplifies common architectural patterns, promotes clean code, and accelerates MAUI development.</Description>
 		<PackageReleaseNotes>Summary of changes made in this release of the package.</PackageReleaseNotes>
 		<Copyright>Copyright © 2025</Copyright>
@@ -40,6 +47,7 @@
 
 	<ItemGroup>
 		<None Include="images\image.png" Pack="true" PackagePath=""/>
+		<None Include="README.md" Pack="true" PackagePath="" />
 	</ItemGroup>
 
 </Project>
