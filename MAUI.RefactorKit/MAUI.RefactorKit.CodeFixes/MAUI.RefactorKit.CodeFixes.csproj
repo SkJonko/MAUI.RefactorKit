@@ -13,10 +13,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="$(OutputPath)$(AssemblyName).pdb" Pack="true" PackagePath="analyzers/dotnet/cs/" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.3.1" />
 	</ItemGroup>
 
