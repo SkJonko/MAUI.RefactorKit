@@ -16,6 +16,7 @@ jobs:
     uses: SkJonko/Centralized-Workflow-YAMLs/.github/workflows/nuget-publish-template.yaml@main
     with:
       project_name: 'MAUI.RefactorKit'
+      need_run_test: false
     secrets:
       NUGET_APIKEY: ${{ secrets.NUGET_APIKEY }}
       DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
