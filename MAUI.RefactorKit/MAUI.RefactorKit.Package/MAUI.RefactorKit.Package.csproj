@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<PackageId>MAUI.RefactorKit</PackageId>
+		<PackageVersion>1.0.0.0</PackageVersion>
+		<Authors>SKJonko X UnRatedDi</Authors>
+		<PackageProjectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</PackageProjectUrl>
+		<PackageIconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</PackageIconUrl>
+		<RepositoryUrl>http://REPOSITORY_URL_HERE_OR_DELETE_THIS_LINE</RepositoryUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<Description>A lightweight and extensible toolkit for refactoring and structuring .NET MAUI applications. MAUI.RefactorKit simplifies common architectural patterns, promotes clean code, and accelerates MAUI development.</Description>
+		<PackageReleaseNotes>Summary of changes made in this release of the package.</PackageReleaseNotes>
+		<Copyright>Copyright</Copyright>
+		<PackageTags>MAUI.RefactorKit, analyzers, Xamarin, port,MAUI,Refactoring,Architecture,Toolkit,Clean Architecture,MVVM,Dependency Injection,Xamarin to MAUI</PackageTags>
+		<DevelopmentDependency>true</DevelopmentDependency>
+		<NoPackageAnalysis>true</NoPackageAnalysis>
+
+		<TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_AddAnalyzersToOutput</TargetsForTfmSpecificContentInPackage>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\MAUI.RefactorKit.CodeFixes\MAUI.RefactorKit.CodeFixes.csproj" />
+		<ProjectReference Include="..\MAUI.RefactorKit\MAUI.RefactorKit.csproj" />
+	</ItemGroup>
+
+	<Target Name="_AddAnalyzersToOutput">
+		<ItemGroup>
+			<TfmSpecificPackageFile Include="$(OutputPath)\MAUI.RefactorKit.dll" PackagePath="analyzers/dotnet/cs" />
+			<TfmSpecificPackageFile Include="$(OutputPath)\MAUI.RefactorKit.CodeFixes.dll" PackagePath="analyzers/dotnet/cs" />
+		</ItemGroup>
+	</Target>
+
+</Project>
