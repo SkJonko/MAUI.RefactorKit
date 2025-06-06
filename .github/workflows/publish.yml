@@ -18,5 +18,5 @@ jobs:
       project_name: 'MAUI.RefactorKit'
       nuget_source_url: 'https://api.nuget.org/v3/index.json'
     secrets:
-      NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+      NUGET_APIKEY: ${{ secrets.NUGET_APIKEY }}
       DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
