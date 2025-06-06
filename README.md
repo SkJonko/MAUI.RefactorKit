@@ -39,13 +39,13 @@ The analyzer will:
 ### Before:
 
 ```
-private string name;
+private string _name;
 public string Name
 {
-    get => name;
+    get => _name;
     set
     {
-        name = value;
+        _name = value;
         OnPropertyChanged(nameof(Name));
     }
 }
@@ -55,7 +55,7 @@ public string Name
 
 ```
 [ObservableProperty]
-private string name;
+private string Name;
 ```
 
 ### Before:
@@ -84,13 +84,13 @@ public partial string Test { get; set; }
 ### Before:
 
 ```
-private string _test;
-public string Test
+private string _test1;
+public string Test1
 {
-    get => _test;
+    get => _test1;
     set
     {
-        _test = value;
+        _test1 = value;
         OnPropertyChanged(nameof(CanExecuteCommand));
     }
 }
@@ -101,7 +101,7 @@ public string Test
 ```
 [ObservableProperty]
 [NotifyPropertyChangedFor(nameof(CanExecuteCommand))]
-public partial string Test { get; set; }
+public partial string Test1 { get; set; }
 ```
 
 ## 📌 Requirements

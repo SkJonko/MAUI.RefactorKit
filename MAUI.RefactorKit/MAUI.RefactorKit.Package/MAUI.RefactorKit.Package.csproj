@@ -9,7 +9,7 @@
 
 	<PropertyGroup>
 		<PackageId>MAUI.RefactorKit</PackageId>
-		<PackageVersion>1.0.0.1</PackageVersion>
+		<PackageVersion>1.0.0.0</PackageVersion>
 		<Authors>SKJonko X UnRatedDi</Authors>
 		<PackageProjectUrl>https://www.nuget.org/packages/MAUI.RefactorKit</PackageProjectUrl>
 		<PackageIcon>image.png</PackageIcon>
