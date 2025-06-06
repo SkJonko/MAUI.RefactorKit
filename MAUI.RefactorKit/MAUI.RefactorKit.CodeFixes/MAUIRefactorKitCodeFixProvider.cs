@@ -205,7 +205,7 @@ namespace MAUI.RefactorKit
             // Get the leading trivia from the original property
             var leadingTrivia = propDecl.GetLeadingTrivia();
 
-            // Normalize to a single blank line (one newlines)
+            // Normalize to a single blank line (one newline)
             var normalizedTrivia = SyntaxFactory.TriviaList(
                 SyntaxFactory.ElasticCarriageReturnLineFeed
             );

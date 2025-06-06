@@ -9,7 +9,7 @@
 
 	<PropertyGroup>
 		<PackageId>MAUI.RefactorKit</PackageId>
-		<PackageVersion>1.0.0.0</PackageVersion>
+		<PackageVersion>1.0.0.1</PackageVersion>
 		<Authors>SKJonko X UnRatedDi</Authors>
 		<PackageProjectUrl>https://www.nuget.org/packages/MAUI.RefactorKit</PackageProjectUrl>
 		<PackageIcon>image.png</PackageIcon>
@@ -37,7 +37,7 @@
 			<TfmSpecificPackageFile Include="$(OutputPath)\MAUI.RefactorKit.CodeFixes.dll" PackagePath="analyzers/dotnet/cs" />
 		</ItemGroup>
 	</Target>
-	
+
 	<ItemGroup>
 		<None Include="Images\image.png" Pack="true" PackagePath=""/>
 	</ItemGroup>

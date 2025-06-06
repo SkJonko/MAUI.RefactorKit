@@ -51,11 +51,57 @@ public string Name
 }
 ```
 
-### After
+### After:
 
 ```
 [ObservableProperty]
 private string name;
+```
+
+### Before:
+
+```
+private string _test;
+public string Test
+{
+    get => _test;
+    set
+    {
+        _test = value;
+        OnPropertyChanged("CanExecuteCommand");
+    }
+}
+```
+
+### After:
+
+```
+[ObservableProperty]
+[NotifyPropertyChangedFor(nameof(CanExecuteCommand))]
+public partial string Test { get; set; }
+```
+
+### Before:
+
+```
+private string _test;
+public string Test
+{
+    get => _test;
+    set
+    {
+        _test = value;
+        OnPropertyChanged(nameof(CanExecuteCommand));
+    }
+}
+```
+
+### After:
+
+```
+[ObservableProperty]
+[NotifyPropertyChangedFor(nameof(CanExecuteCommand))]
+public partial string Test { get; set; }
 ```
 
 ## 📌 Requirements
