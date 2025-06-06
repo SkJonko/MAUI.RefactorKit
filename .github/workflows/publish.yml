@@ -1,0 +1,22 @@
+name: publish
+on:
+  workflow_dispatch: # Allow running the workflow manually from the GitHub UI
+  push:
+    branches:
+      - 'main'       # Run the workflow when pushing to the main branch
+  pull_request:
+    branches:
+      - '*'          # Run the workflow for all pull requests
+  release:
+    types:
+      - published    # Run the workflow when a new GitHub release is published
+
+jobs:
+  publish:
+    uses: SkJonko/Centralized-Workflow-YAMLs/.github/workflows/nuget-publish-template.yaml@main
+    with:
+      package_name: 'MAUI.RefactorKit'
+      nuget_source_url: 'https://api.nuget.org/v3/index.json'
+    secrets:
+      NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+      DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
